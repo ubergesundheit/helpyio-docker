@@ -9,9 +9,9 @@ localhost.localdomain:80 {
 
   proxy / helpy:8080/ {
     except /assets
-    proxy_header Host {host}
-    proxy_header X-Real-IP {remote}
-    proxy_header X-Forwarded-Proto {scheme}
+    header_upstream Host {host}
+    header_upstream X-Real-IP {remote}
+    header_upstream X-Forwarded-Proto {scheme}
   }
   log stdout
 }
